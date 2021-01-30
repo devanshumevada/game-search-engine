@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils"
-
 const initial_state = {
         popular: [],
         new_games : [],
