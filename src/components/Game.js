@@ -1,12 +1,29 @@
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
-
+import {useDispatch} from 'react-redux';
+import load_detail from '../actions/detailAction';
+import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import {get_smaller_image} from '../util';
 function Game(props) {
+	const history = useHistory();
+	if (history.location.pathname === '/') {
+		document.body.style.overflow = 'auto';
+	} else {
+		document.body.style.overflow = 'hidden';
+	}
+	const dispatch = useDispatch();
+	const handle_details_load = () => {
+		document.body.style.overflow = 'hidden';
+		dispatch(load_detail(props.game.id));
+	}
         return (
-                <StyledGame>
+                <StyledGame onClick={handle_details_load}>
+		<Link to={`/game/${props.game.id}`}>
 			<h3>{props.game.name}</h3>
 			<p>{props.game.released}</p>  
-			<img src={props.game.background_image} alt={`Cover Image of ${props.game.name}`} />  
+			<img src={get_smaller_image(props.game.background_image, 640)} alt={`Cover of ${props.game.name}`} />  
+		</Link>
                 </StyledGame>
         )
 }

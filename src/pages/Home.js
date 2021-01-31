@@ -4,9 +4,14 @@ import {useEffect} from 'react';
 import Game from '../components/Game';
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
+import GameDetail from '../components/GameDetail';
+import {useLocation} from 'react-router-dom';
 
 function Home() {
 	const dispatch = useDispatch();
+	const location = useLocation();
+	const pathid = location.pathname.split("/")[2];
+	console.log(pathid);
 	useEffect(()=> {
 		dispatch(load_games());
 	},[dispatch]);
@@ -14,6 +19,7 @@ function Home() {
 	const games = useSelector(state=>state.games);
 	return (
 		<GameList>
+			{pathid && <GameDetail />}
 			<h2>Upcoming Games</h2>
 			<Games>
 				{games.upcoming.map(game => <Game key={game.id} game={game} />)}

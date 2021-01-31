@@ -14,6 +14,8 @@ const new_games= `games?key=${process.env.REACT_APP_RAWG_API_KEY}&dates=${last_y
 export const get_popular_games_api_url = () => `${base_url}${popular_games}`;
 export const get_upcoming_games_api_url = () => `${base_url}${upcoming_games}`;
 export const get_new_games_api_url = () => `${base_url}${new_games}`;
+export const get_game_detail_api_url = id => `${base_url}games/${id}`;
+export const get_game_screenshots_api_url  = (id) => `${base_url}games/${id}/screenshots`;
 
 
 
