@@ -19,7 +19,6 @@ function Home() {
 
 	const games = useSelector(state=>state.games);
 	const is_loading = useSelector(state=>state.detail.is_loading);
-	console.log(is_loading)
 	return (
 		<>
 		{is_loading ? 
@@ -63,13 +62,6 @@ const Games = styled(motion.div)`
   	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   	grid-column-gap: 3rem;
   	grid-row-gap: 5rem;
-`;
-
-const LoadingImage = styled.div`
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
 `;
 
 export default Home;

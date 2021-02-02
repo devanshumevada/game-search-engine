@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import loading from '../img/loading.gif';
 function LoadingSpinner() {
         return (
