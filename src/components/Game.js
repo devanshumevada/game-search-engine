@@ -20,7 +20,7 @@ function Game(props) {
         return (
                 <StyledGame onClick={handle_details_load}>
 		<Link to={`/game/${props.game.id}`}>
-			<h3>{props.game.name}</h3>
+			<h3 layoutId={`title ${props.game.id.toString()}`}>{props.game.name}</h3>
 			<p>{props.game.released}</p>  
 			<img src={get_smaller_image(props.game.background_image, 640)} alt={`Cover of ${props.game.name}`} />  
 		</Link>
